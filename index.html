@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Код Изнанки - Врата Дома</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Загрузочный экран -->
+    <div id="loader" class="loader active">
+        <div class="loader-content">
+            <div class="pulsating-eye">
+                <img src="Eye.gif" alt="Всевидящее Око">
+            </div>
+            <div class="loader-text">
+                <p>Изнанка загружается...</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Основной контент -->
+    <div id="content" class="content-hidden">
+        <div class="eye">
+            <img src="Eye.gif" alt="Всевидящее Око">   
+        </div>
+    
+        <!-- Экран приветствия -->
+        <div id="welcome-screen" class="screen">
+            <div class="container">
+                <h1 class="custom-font">Код Изнанки</h1>
+                
+                <div class="quote">
+                    <p>"Дом не просто строение из кирпича. Дом — это состояние души. А наш Дом особенный. Он стоит на границе миров."</p>
+                </div>
+                
+                <div class="intro-text">
+                    <p>Приветствую, жилец. Ты получил доступ к Вратам Изнанки.</p>
+                    <p>Твой разум достаточно гибок, чтобы воспринять истину, скрытую за пеленой реальности.</p>
+                    <p>Но готов ли ты пройти все испытания и доказать, что достоин звания Смотрителя?</p>
+                </div>
+                
+                <button id="start-btn" class="pixel-button">Войти в Дом</button>
+            </div>
+        </div>
+        
+        <!-- Уровень 1: Искра -->
+        <div id="level-1" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 1: Огненная душа</h2>
+                    <div class="level-counter">1/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Дочь вожака, огонь в ночи,<br>Чью энергию нельзя просить в долги.</p>
+                    <p class="riddle-text">Вспыхнет ярко, но быстро тлеет,<br>Кто она что так греет?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-1" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(1)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-1" class="error-message hidden">
+                        Неверно. Вспомни, чья это огненная натура.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 2: Русалка -->
+        <div id="level-2" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 2: Голос из глубин</h2>
+                    <div class="level-counter">2/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Её голос узнаешь из тысяч,<br>Мечтательница с душой из глубин.</p>
+                    <p class="riddle-text">Безумные фантазии, доброе сердце,<br>Кто она, что тайной готова с тобой поделиться?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-2" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(2)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-2" class="error-message hidden">
+                        Неверно. Вспомни, чей это голос.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 3: Шакал Табаки -->
+        <div id="level-3" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 3: Ходячая энциклопедия</h2>
+                    <div class="level-counter">3/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Заводила и сказитель, знаток всех дорог,<br>В Духовом проводник, он помог бы тебе.</p>
+                    <p class="riddle-text">Шутник неугомонный, советчик мудрейший,<br>Кто этот хранитель знаний древнейший?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-3" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(3)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-3" class="error-message hidden">
+                        Неверно. Вспомни, кто это такой общительный и знающий.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 4: Суккуб -->
+        <div id="level-4" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 4: Нежная угроза</h2>
+                    <div class="level-counter">4/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Мягкость и нежность, забота о стае,<br>Но имя демона в себе таит, это все знают.</p>
+                    <p class="riddle-text">Хранительница вожака, защитница семьи,<br>Кто эта сила, что на страже стихии?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-4" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(4)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-4" class="error-message hidden">
+                        Неверно. Вспомни, кто хранит вожака.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 5: Тень -->
+        <div id="level-5" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 5: Первый клинок</h2>
+                    <div class="level-counter">5/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Гроза духовых шкафов, хаоса воплощение,<br>В движ он готов ринуться без сомнения.</p>
+                    <p class="riddle-text">Первый клинок, что проломит стену головой,<br>Кто этот воин с отчаянной душой?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-5" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(5)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-5" class="error-message hidden">
+                        Неверно. Вспомни, кто это так отчаян.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 6: Рыжий -->
+        <div id="level-6" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 6: Яркость и контраст</h2>
+                    <div class="level-counter">6/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Музыка и яркость, стилей всех палитра,<br>Совет даст прекрасный, но а после тусовка.</p>
+                    <p class="riddle-text">Не видит Духовой, но ценна для семьи,<br>Кто эта загадка противоречий земли?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-6" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(6)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-6" class="error-message hidden">
+                        Неверно. Вспомни, кто это такой яркий и противоречивый.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 7: Лис -->
+        <div id="level-7" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 7: Правая лапа</h2>
+                    <div class="level-counter">7/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">На периферии вечно, но всё замечает,<br>Советом и шуткой тьму разгоняет.</p>
+                    <p class="riddle-text">Правая лапа вожака, основатель банды,<br>Кто этот мудрец, не ищущий гласности?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-7" placeholder="Введите кличку..." autocomplete="off">
+                        <button onclick="checkAnswer(7)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-7" class="error-message hidden">
+                        Неверно. Вспомни, кто это такой скрытный и обаятельный.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Уровень 8: Стая -->
+        <div id="level-8" class="screen">
+            <div class="container">
+                <div class="level-header">
+                    <h2>Уровень 8: Единство</h2>
+                    <div class="level-counter">8/8</div>
+                </div>
+                
+                <div class="riddle-container">
+                    <p class="riddle-text">Семь разных душ, но одно испытание,<br>Под крылом Дракона наше созерцание.</p>
+                    <p class="riddle-text">Что их объединяет, делает семьёй,<br>Где каждый найдёт и поддержку, и покой?</p>
+                    
+                    <div class="answer-container">
+                        <input type="text" id="answer-8" placeholder="Введите ответ..." autocomplete="off">
+                        <button onclick="checkAnswer(8)" class="pixel-button">Ответить</button>
+                    </div>
+                    
+                    <div id="error-8" class="error-message hidden">
+                        Неверно. Вспомни, что связывает всех нас.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Финальный экран -->
+        <div id="final-screen" class="screen">
+            <div class="container">
+                <div class="success-animation">
+                    <div class="portal"></div>
+                </div>
+                
+                <h2>Врата Открыты!</h2>
+                
+                <div class="success-message">
+                    <p>Ты прошел все испытания, жилец. Изнанка признает тебя.</p>
+                    <p>Твой ключ к следующей двери: <span class="secret-key">СЕРЫЙ_ДОМ</span></p>
+                    
+                    <div class="quote">
+                        <p>"Настоящий Дом — не место, а состояние души. И наш Дом теперь будет с тобой всегда."</p>
+                    </div>
+                    
+                    
+                    <a href="https://t.me/Kod_Iznankibot" id="bot-link" class="pixel-button">Перейти к боту-проводнику</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Дом помнит. Изнанка ждёт.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
